@@ -1,0 +1,38 @@
+import { useState, useEffect } from "react";
+
+const [loading, setLoading] = useState(true);
+const [error, setError] = useState(null);
+const [fetchFacts, setFetchFacts] = useState([]);
+
+useEffect(() => {
+  const CatFacts = async () => {
+    try {
+      const response = await fetch("https://catfact.ninja/facts?limit=5");
+      const data = await response.json();
+      setLoading(true);
+      setError(null);
+      const result = await response.json();
+      setFetchFacts(result);
+    } catch (error) {
+      console.error("Kan ikke finne CatFacts:", error);
+      setError(error.message);
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  CatFacts();
+}, [fetchFacts]);
+
+return (
+  <div>
+    {loading && <p>Loading...</p>}
+    {error && <p style={{ color: "red" }}>Error: {error}</p>}
+    {data && (
+      <div>
+        <h2>{data.title}</h2>
+        <p>{data.body}</p>
+      </div>
+    )}
+  </div>
+);
