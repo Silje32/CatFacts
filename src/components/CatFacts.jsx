@@ -1,10 +1,10 @@
 import { useState, useEffect } from "react";
 
-const [loading, setLoading] = useState(true);
-const [error, setError] = useState(null);
-const [fetchFacts, setFetchFacts] = useState([]);
-
 export default function CatFacts() {
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
+  const [fetchFacts, setFetchFacts] = useState([]);
+
   useEffect(() => {
     const CatFact = async () => {
       try {
