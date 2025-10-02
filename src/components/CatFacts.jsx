@@ -9,7 +9,6 @@ export default function CatFacts() {
     const CatFact = async () => {
       try {
         const response = await fetch("https://catfact.ninja/facts?limit=5");
-        const data = await response.json();
         setLoading(true);
         setError(null);
         const result = await response.json();
@@ -31,8 +30,8 @@ export default function CatFacts() {
       {error && <p style={{ color: "red" }}>Error: {error}</p>}
       {fetchFacts && (
         <div>
-          <h2>{data.title}</h2>
-          <p>{data.body}</p>
+          <h2>Her kommer det noe...</h2>
+          <p>Her kommer det noe mer.</p>
         </div>
       )}
     </div>
