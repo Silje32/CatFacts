@@ -22,7 +22,7 @@ export default function CatFacts() {
     };
 
     CatFact();
-  }, [fetchFacts]);
+  }, []);
 
   return (
     <div>
