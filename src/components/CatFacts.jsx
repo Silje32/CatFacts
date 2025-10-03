@@ -15,7 +15,7 @@ export default function CatFacts() {
           throw new Error("Fetching failed");
         }
         const result = await response.json();
-        setFetchFacts(result);
+        setFetchFacts(result.data);
       } catch (error) {
         console.error("Could not find CatFacts:", error);
         setError(error.message);
@@ -33,7 +33,7 @@ export default function CatFacts() {
       {error && <p style={{ color: "red" }}>Error: {error}</p>}
       {fetchFacts && (
         <div>
-          <p>{fetchFacts.fact}</p>
+          <p>{fetchFacts.data}</p>
         </div>
       )}
     </div>
