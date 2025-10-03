@@ -16,6 +16,7 @@ export default function CatFacts() {
         }
         const result = await response.json();
         setFetchFacts(result.data);
+        console.log(result.data);
       } catch (error) {
         console.error("Could not find CatFacts:", error);
         setError(error.message);
