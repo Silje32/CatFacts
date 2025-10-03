@@ -7,10 +7,13 @@ export default function CatFacts() {
 
   useEffect(() => {
     const CatFact = async () => {
+      setLoading(true);
+      setError(null);
       try {
         const response = await fetch("https://catfact.ninja/facts?limit=5");
-        setLoading(true);
-        setError(null);
+        if (!response.ok) {
+          throw new Error("Fetching failed");
+        }
         const result = await response.json();
         setFetchFacts(result);
       } catch (error) {
@@ -30,8 +33,7 @@ export default function CatFacts() {
       {error && <p style={{ color: "red" }}>Error: {error}</p>}
       {fetchFacts && (
         <div>
-          <h2>Her kommer det noe...</h2>
-          <p>Her kommer det noe mer.</p>
+          <p>{fetchFacts}</p>
         </div>
       )}
     </div>
