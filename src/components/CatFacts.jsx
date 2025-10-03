@@ -34,7 +34,12 @@ export default function CatFacts() {
       {error && <p style={{ color: "red" }}>Error: {error}</p>}
       {fetchFacts && (
         <div>
-          <p>{fetchFacts.data}</p>
+          {fetchFacts.length > 0 &&
+            fetchFacts.map((facts) => (
+              <>
+                <p>{facts.fact}</p>
+              </>
+            ))}
         </div>
       )}
     </div>
