@@ -33,7 +33,7 @@ export default function CatFacts() {
       {error && <p style={{ color: "red" }}>Error: {error}</p>}
       {fetchFacts && (
         <div>
-          <p>{fetchFacts}</p>
+          <p>{fetchFacts.fact}</p>
         </div>
       )}
     </div>
