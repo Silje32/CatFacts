@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import styles from "./CatFacts.module.css";
 
 export default function CatFacts() {
   const [loading, setLoading] = useState(true);
@@ -29,15 +30,16 @@ export default function CatFacts() {
   }, []);
 
   return (
-    <div>
+    <div className={styles.container}>
+      <h1>CatFacts</h1>
       {loading && <p>Loading...</p>}
       {error && <p style={{ color: "red" }}>Error: {error}</p>}
       {fetchFacts && (
-        <div>
+        <div className={styles.facts}>
           {fetchFacts.length > 0 &&
             fetchFacts.map((facts) => (
               <>
-                <p>{facts.fact}</p>
+                <p className={styles.p}>{facts.fact}</p>
               </>
             ))}
         </div>
