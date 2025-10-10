@@ -1,5 +1,4 @@
 import CatFacts from "./components/CatFacts.jsx";
-import "./App.css";
 
 function App() {
   return (
